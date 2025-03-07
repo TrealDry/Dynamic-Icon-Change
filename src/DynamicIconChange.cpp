@@ -51,18 +51,30 @@ void GUIManager::onFlippedToggler(CCObject* sender) {
 
         dic->enableMod(nullptr);
     } else {
-        PlayerObject* player1 = gmPtr->m_playLayer->m_player1;
-        int activeMode = 0;
+        std::pair<PlayerObject*, PlayerObject*> POs;
+        std::pair<int, int>                     activeModes;
 
-        if (player1->m_isShip)        activeMode = 1;
-        else if (player1->m_isBall)   activeMode = 2;
-        else if (player1->m_isBird)   activeMode = 3;
-        else if (player1->m_isDart)   activeMode = 4;
-        else if (player1->m_isRobot)  activeMode = 5;
-        else if (player1->m_isSpider) activeMode = 6;
-        else if (player1->m_isSwing)  activeMode = 7;
+        for (int i = 0; i <= 1; i++) {
+            PlayerObject* player = i == 0 ? gmPtr->m_playLayer->m_player1 : 
+                                            gmPtr->m_playLayer->m_player2;
+            int activeMode = 0;
 
-        dic->disableModInGame(player1, activeMode);
+            if      (player->m_isShip)   activeMode = 1;
+            else if (player->m_isBall)   activeMode = 2;
+            else if (player->m_isBird)   activeMode = 3;
+            else if (player->m_isDart)   activeMode = 4;
+            else if (player->m_isRobot)  activeMode = 5;
+            else if (player->m_isSpider) activeMode = 6;
+            else if (player->m_isSwing)  activeMode = 7;
+            
+            if (i == 0) {
+                POs.first = player; activeModes.first = activeMode;
+            } else {
+                POs.second = player; activeModes.second = activeMode;
+            }
+        }
+
+        dic->disableModInGame(POs, activeModes);
 
         SettingsManager::setGlobalStatusMod(false);
     }
@@ -141,14 +153,23 @@ void DynamicIconChange::disableMod() {
     log::debug("DISABLE MOD");
 }
 
-void DynamicIconChange::disableModInGame(PlayerObject* po, int activeMode) {
+void DynamicIconChange::disableModInGame(
+    std::pair<PlayerObject*, PlayerObject*>& po, 
+    std::pair<int, int>& activeMode
+) {
     log::debug("FIRST STATE - DISABLE MOD IN GAME");
-    log::debug("! {} !", globalModStatus);
+    log::debug("! {} !", this->globalModStatus);
     if (!this->globalModStatus) return;
     log::debug("TWO STATE - DISABLE MOD IN GAME");
 
     modStatus = false;
-    this->im->loadAndUpdateIconKit(po, activeMode);
+
+    for (int i = 0; i <= 1; i++) {
+        auto _po          = i == 0 ? po.first         : po.second;
+        auto _activeMode  = i == 0 ? activeMode.first : activeMode.second;
+
+        this->im->loadAndUpdateIconKit(_po, _activeMode);
+    }
 
     log::debug("FINAL STATE - DISABLE MOD IN GAME");
 }

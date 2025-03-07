@@ -1,5 +1,8 @@
+# 0.5.0
+- In development...
+
 # 0.4.2
-- When the “Default Mini Icon” option is enabled, the cube and balloon icons in mini mode do not change.
+- When the “Default Mini Icon” option is enabled, cube and ball icons in mini mode do not change.
 
 # 0.4.1
 - Fixed a bug where mod would disable not correctly (when entering the level editor).
