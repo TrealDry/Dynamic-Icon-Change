@@ -1,5 +1,6 @@
 # 0.5.0
-- In development...
+- Changed geode sdk version from 4.2.0 to 4.3.1.
+- Fixed a bug with duals when icons were incorrectly placed.
 
 # 0.4.2
 - When the “Default Mini Icon” option is enabled, cube and ball icons in mini mode do not change.
