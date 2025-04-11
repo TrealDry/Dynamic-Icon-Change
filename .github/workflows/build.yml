@@ -2,10 +2,9 @@ name: Build Geode Mod
 
 on:
   workflow_dispatch:
-  pull_request:
   push:
     branches:
-      - "**"
+      - "master"
 
 jobs:
   build:
@@ -15,9 +14,14 @@ jobs:
         config:
         - name: Windows
           os: windows-latest
+          build-config: RelWithDebInfo
 
         - name: macOS
           os: macos-latest
+
+        - name: iOS
+          os: macos-latest
+          target: iOS
 
         - name: Android32
           os: ubuntu-latest
@@ -34,12 +38,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the mod
-        uses: geode-sdk/build-geode-mod@main
+        uses: hiimjasmine00/build-geode-mod@main
         with:
-          build-config: 'RelWithDebInfo'
-          bindings: geode-sdk/bindings
+          sdk: nightly
+          build-config: ${{ matrix.config.build-config || 'Release' }}
           export-pdb: true
-          bindings-ref: main
+          export-symbols: true
           combine: true
           target: ${{ matrix.config.target }}
 
@@ -49,7 +53,7 @@ jobs:
     needs: ['build']
 
     steps:
-      - uses: geode-sdk/build-geode-mod/combine@main
+      - uses: hiimjasmine00/build-geode-mod/combine@main
         id: build
 
       - uses: actions/upload-artifact@v4
