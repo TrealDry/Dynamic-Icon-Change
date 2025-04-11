@@ -10,6 +10,11 @@ You can toggle the state of the mod from on to off in:
 
 More fine tuning (use of certain icons, range of choices) can be found in the mod settings.
 
+# If game is lagging
+
+Go to the Icon Garage, and scroll through all pages. 
+Preferably, game (and mod) should be on SSD.
+
 # Developers
 
 **Coder** - TrealDry  \
