@@ -1,5 +1,9 @@
+# 0.5.0
+- Changed geode sdk version from 4.2.0 to 4.3.1.
+- Fixed a bug with duals when icons were incorrectly placed.
+
 # 0.4.2
-- When the “Default Mini Icon” option is enabled, the cube and balloon icons in mini mode do not change.
+- When the “Default Mini Icon” option is enabled, cube and ball icons in mini mode do not change.
 
 # 0.4.1
 - Fixed a bug where mod would disable not correctly (when entering the level editor).

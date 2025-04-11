@@ -1,5 +1,5 @@
 {
-	"geode": "4.2.0",
+	"geode": "4.3.1",
 
 	"gd": {
 		"win": "2.2074",
@@ -10,7 +10,7 @@
 
 	"id": "trealdry.dynamic-icon-change",
 	"name": "Dynamic Icon Change",
-	"version": "v0.4.2",
+	"version": "v0.5.0",
 	"developers": ["TrealDry", "MrKolii"],
 	"description": "Icon change when going through portal.",
 

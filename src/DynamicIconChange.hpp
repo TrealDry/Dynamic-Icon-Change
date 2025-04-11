@@ -2,6 +2,7 @@
 
 #include <random>
 #include <string>
+#include <utility>
 
 #include "includes.hpp"
 #include "IconManager.hpp"
@@ -82,7 +83,10 @@ public:
 
     void enableMod(PlayLayer* pl);
     void disableMod();
-    void disableModInGame(PlayerObject* po, int activeMode);
+    void disableModInGame(
+        std::pair<PlayerObject*, PlayerObject*>& po, 
+        std::pair<int, int>& activeMode
+    );
 
     bool validateLimits();
 
