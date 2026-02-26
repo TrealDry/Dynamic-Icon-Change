@@ -20,13 +20,19 @@ void initDic() {
 $execute {
 	initDic();
 
-	listenForSettingChanges("disable-mod", [](bool value) {
-		dic->setGlobalModStatus(!value);
-	});
+	listenForSettingChanges<bool>(
+		"disable-mod", 
+		[](bool value) {
+			dic->setGlobalModStatus(!value);
+		}
+	);
 
-	listenForSettingChanges("unlock-icons", [](bool value) {
-		dic->setUnlockIcons(value);
-	});
+	listenForSettingChanges<bool>(
+		"icons-mod", 
+		[](bool value) {
+			dic->setUnlockIcons(value);
+		}
+	);
 }
 
 class $modify(MyPlayLayer, PlayLayer) {

@@ -1,16 +1,16 @@
 {
-	"geode": "4.3.1",
+	"geode": "5.1.0",
 
 	"gd": {
-		"win": "2.2074",
-		"android": "2.2074",
-		"mac": "2.2074",
-		"ios": "2.2074"
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
 	},
 
 	"id": "trealdry.dynamic-icon-change",
 	"name": "Dynamic Icon Change",
-	"version": "v0.5.0",
+	"version": "v0.5.1",
 	"developers": ["TrealDry", "MrKolii"],
 	"description": "Icon change when going through portal.",
 
@@ -23,8 +23,8 @@
 
 	"dependencies": {
 		"geode.node-ids": {
-			"version": ">=1.19.0",
-			"importance": "required"
+			"version": ">=1.23.0",
+			"required": true
 		}
 	},
 

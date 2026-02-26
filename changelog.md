@@ -1,3 +1,6 @@
+# 0.5.1
+- Changed geode sdk version from 4.3.1 to 5.1.0.
+
 # 0.5.0
 - Changed geode sdk version from 4.2.0 to 4.3.1.
 - Fixed a bug with duals when icons were incorrectly placed.
